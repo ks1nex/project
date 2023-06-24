@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+
+<body>
+    <label for="input1">Ваше число:</label>
+    <input id="input1" type="text">
+    <button id="btn1" py-click="calc()">Проверить</button>
+    <p id="p1"></p>
+    <py-script>
+    def calc():
+        e13 = Element("input1")
+        result2 = Element("p1")
+        e13_v = e13.element.value
+        try:
+            l13_f = float(e13_v)
+            l13_i = int(l13_f)
+            if l13_f == l13_i and l13_i > 0:
+                result2.element.innerText = 'Натуральное Число'
+            else:
+                result2.element.innerText = 'Ненатуральное число'
+        except:
+            result2.element.innerText = 'Не число'
+          
+
+    </py-script>
+</body>
+</html>

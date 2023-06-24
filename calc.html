@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+
+    
+    <link rel="stylesheet" href="style.css">
+    <title>пам пам пам</title>
+    <head>
+        <link rel="shortcut icon" 
+        href="/images/favicon.png" 
+        type="image/png">
+       </head>
+
+</head>
+<body>
+    
+    
+    
+    
+    
+
+    <div>
+        <input type="text" id="el3">   
+        <button id="sum2" py-click="calc()">=</button>
+        <button id="delet" py-click="last_symbol()">⌫</button>
+    </div>
+    
+    
+    <p id="result2"></p>
+    <div class="wrapper">
+        <div class="btns">
+            <button class="btn-c" id="btn1" py-click="add('1')">1</button>
+            <button class="btn-c" id="btn2" py-click="add('2')">2</button>
+            <button class="btn-c" id="btn3" py-click="add('3')">3</button>
+            <button class="btn-c" id="btn)" py-click="add(')')">)</button>
+            
+        </div>
+        <div class="btns">
+            <button class="btn-c" id="btn4" py-click="add('4')">4</button>
+            <button class="btn-c" id="btn5" py-click="add('5')">5</button>
+            <button class="btn-c" id="btn6" py-click="add('6')">6</button>
+            <button class="btn-c" id="btn(" py-click="add('(')">(</button>
+            
+        </div>
+        <div class="btns">
+            <button class="btn-c" id="btn7" py-click="add('7')">7</button>
+            <button class="btn-c" id="btn8" py-click="add('8')">8</button>
+            <button class="btn-c" id="btn9" py-click="add('9')">9</button>
+            <button class="btn-c" id="btn0" py-click="add('0')">0</button>
+            
+        </div>
+        <div class="btns">
+            <button class="btn-c" id="btn-p" py-click="add('+')">+</button>
+            <button class="btn-c" id="btn-m" py-click="add('-')">-</button>
+            <button class="btn-c" id="btn-f" py-click="add('')"></button>
+            <button class="btn-c" id="btn-d" py-click="add('/')">÷</button>
+        </div>
+    </div>
+    <py-script>
+        def add(char):
+            el3 = Element("el3") 
+            el3.element.value = el3.element.value+char
+
+
+        def calc():
+            el3 = Element("el3")
+            result2 = Element("result2")
+            el3_v = el3.element.value
+            try:
+                result2.element.innerText = eval(el3_v)
+            except:
+                result2.element.innerText ='Ошибка'
+
+        def last_symbol():
+            el3 = Element("el3") 
+            el3.element.value = el3.element.value[0:-1]
+
+
+                
+        
+        
+        
+        
+    </py-script>
+
+
+</body>
+</html>

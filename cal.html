@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator for kiparh</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+    <header>Калькулятор для кипарх</header>
+    <main>
+     <div class="wrapper">
+        <div class="calc" id="calc1">
+            <div class="bebrik"> 
+            <div>
+              <input type="text" id="el3" />
+              <button id="sum2" py-click="calc()">=</button>
+              <button id="delet" py-click="last_symbol()">⌫</button>
+            </div>
+
+            <p id="result2">0</p>
+            <div class="wrapper2">
+              <div class="btns">
+                <button class="btn-c" id="btn1" py-click="add('1')">1</button>
+                <button class="btn-c" id="btn2" py-click="add('2')">2</button>
+                <button class="btn-c" id="btn3" py-click="add('3')">3</button>
+                <button class="btn-c" id="btn)" py-click="add(')')">)</button>
+              </div>
+              <div class="btns">
+                <button class="btn-c" id="btn4" py-click="add('4')">4</button>
+                <button class="btn-c" id="btn5" py-click="add('5')">5</button>
+                <button class="btn-c" id="btn6" py-click="add('6')">6</button>
+                <button class="btn-c" id="btn(" py-click="add('(')">(</button>
+              </div>
+              <div class="btns">
+                <button class="btn-c" id="btn7" py-click="add('7')">7</button>
+                <button class="btn-c" id="btn8" py-click="add('8')">8</button>
+                <button class="btn-c" id="btn9" py-click="add('9')">9</button>
+                <button class="btn-c" id="btn0" py-click="add('0')">0</button>
+              </div>
+              <div class="btns">
+                <button class="btn-c" id="btn-p" py-click="add('+')">+</button>
+                <button class="btn-c" id="btn-m" py-click="add('-')">-</button>
+                <button class="btn-c" id="btn-f" py-click="add('*')">*</button>
+                <button class="btn-c" id="btn-d" py-click="add('/')">÷</button>
+              </div>
+            </div>
+            <py-script>
+                def add(char):
+                el3 = Element("el3") 
+                el3.element.value = el3.element.value+char
+    
+    
+            def calc():
+                el3 = Element("el3")
+                result2 = Element("result2")
+                el3_v = el3.element.value
+                try:
+                    result2.element.innerText = eval(el3_v)
+                except:
+                    result2.element.innerText ='Ошибка(Недопустимый вид)'
+    
+            def last_symbol():
+                el3 = Element("el3") 
+                el3.element.value = el3.element.value[0:-1]
+            </py-script>
+            <div>
+          <div>
+            <div>
+              <label for="length1">Длина прямоугольника:</label>
+              <input type="text" class="maininput" id="length1">
+              <label for="width1">Ширина прямоугольника:</label>
+              <input type="text" class="maininput" id="width1">
+       </div> 
+               <button id="btn_a1" py-click="rect()">Вычислить площадь!</button>
+               <p id="res_a1"></p>
+               <py-script>
+                   def rect():
+                       len1=Element("length1").element.value
+                       wid=Element("width1").element.value
+                       res=Element("res_a1")
+                       try:
+                           res.element.innerText=str(float(len1)*float(wid))
+                       except:
+                           res.element.innerText="Ошибка"
+               </py-script>
+               
+       </head>
+  
+              <div>
+                  <label for="hand1">Сторона квадрата: </label>
+                  <input type="text" class="maininput" id="hand1">
+                 
+           </div> 
+                   <button id="btn_a3" py-click="reft()">Вычислить периметр!</button>
+                   <p id="res_a3"></p>
+                   <py-script>
+                       def reft():
+                           hand1=Element("hand1").element.value
+                           resss=Element("res_a3")
+                           try:
+                               resss.element.innerText=int(float(hand1)*float(4))
+                           except:
+                               resss.element.innerText="Ошибка(Недопустимый вид)"
+                   </py-script>
+               </head>
+               <body>
+                  <div>
+                      <label for="length2">Длина прямоугольника:</label>
+                      <input type="text" class="maininput" id="length2">
+                      <label for="width2">Ширина прямоугольника:</label>
+                      <input type="text" class="maininput" id="width2">
+               </div> 
+                       <button id="btn_a4" py-click="rezt()">Вычислить периметр!</button>
+                       <p id="res_a4"></p>
+                       <py-script>
+                           def rezt():
+                               len2=Element("length2").element.value
+                               wid2=Element("width2").element.value
+                               ressss=Element("res_a4")
+                               try:
+                                   ressss.element.innerText=str(float(len2)+float(wid2)+(float(len2)+float(wid2)))
+                               except:
+                                   ressss.element.innerText="Ошибка(Недопустимый вид)"
+                       </py-script>
+
+
+        <div class="chet" id="nechet">    
+            <label class= "mainlabel" for="input_nat">Введите число:</label>
+            <input class="maininput" id="input_nat" type="text">
+            <button class= "mainbutton" id="btn_nat" py-click="nat()">Проверить натуральность</button>
+            <p class="mainp" id="p_nat">.</p>
+            <py-script>
+            def nat():
+                e13 = Element("input_nat")
+                result2 = Element("p_nat")
+                e13_v = e13.element.value
+                try:
+                    l13_f = float(e13_v)
+                    l13_i = int(l13_f)
+                    if l13_f == l13_i and l13_i > 0:
+                        result2.element.innerText = 'Натуральное Число'
+                    else:
+                        result2.element.innerText = 'Ненатуральное число'
+                except:
+                    result2.element.innerText = 'Не число'
+            </py-script>
+
+        <div class="even" id="even1">    
+        <label class= "mainlabe1" for="input_even">Укажите число:</label>
+        <input class="maininput" id="input_even" type="text">
+        <button class= "mainbutton" id="btn_even" py-click="even()">Проверить Четность</button>
+        <p class="mainp" id="p_even">.</p>
+        <py-script>
+          def even():
+              e13 = Element("input_even")
+              result_chet = Element("p_even")
+              e13_v = e13.element.value
+              try:
+                  l13_f = float(e13_v)
+                  if l13_f % 2 ==0.0:
+                      result_chet.element.innerText = 'Чётное число'
+                  else:
+                      result_chet.element.innerText = 'Нечетное число'
+              except:
+                  result_chet.element.innerText = 'Не число'
+                
+              
+    
+        </py-script>>
+      </div>
+      <div>
+        <div>
+        
+      </div>
+      
+
+    </main>
+      <nav>
+        <a href="#calc1">Калькулятор</a>
+        <a href="#nechet">Натуральность</a>
+        <a href="#even1">Четность</a>
+        <a href="#perimetr1">Периметр</a>
+        <a href="#square">Площадь</a>
+      </nav>
+      <footer>СОЗДАТЕЛИ САЙТА:Saul Goodman,Walter White,Gustavo Fring(Никита Лымарев,Анатолий Макаров,Никита Спирин)</footer>
+  </body>
+</html>
